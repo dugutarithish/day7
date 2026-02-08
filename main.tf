@@ -3,8 +3,10 @@ provider "aws" {
 }
 
 provider "vault" {
-  address          = "http://13.233.96.202:8200/:8200"
+  address          = "http://13.233.96.202:8200"
   skip_child_token = true
+  skip_tls_verify = true
+
 
   auth_login {
     path = "auth/approle/login"
