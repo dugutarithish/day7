@@ -10,8 +10,8 @@ provider "vault" {
     path = "auth/approle/login"
 
     parameters = {
-      role_id   = "46873d61-e34d-748f-8479-7bfbbfd53fd6"
-      secret_id = "8622db62-c5dc-3e3c-37f2-3b0074fd8915"
+      role_id   = " 46873d61-e34d-748f-8479-7bfbbfd53fd6"
+      secret_id = "f9ed59ce-efab-63c0-9328-68569826ed7a"
     }
   }
 }
