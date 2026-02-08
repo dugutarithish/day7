@@ -3,8 +3,7 @@ provider "aws" {
 }
 
 provider "vault" {
-  # Updated with your active Vault IP from the browser screenshot
-  address          = "http://3.108.54.77:8200" 
+  address          = "http://3.108.54.77:8200"
   skip_child_token = true
   skip_tls_verify  = true
 
@@ -13,15 +12,14 @@ provider "vault" {
 
     parameters = {
       role_id   = "ea9dfa49-199a-91d9-74d6-be7231ae7850"
-      secret_id = "a01acb6f-8ea2-24df-cfe8-4fdd9daf7b74"
+      secret_id = "8a4a55ef-1bab-bd40-d620-d6084515d88a"
     }
   }
 }
 
-# Fixed: Changed from data "kv" to "vault_kv_secret_v2"
 data "vault_kv_secret_v2" "test-vault" {
-  mount = "kv"          # Matches the mount path in your screenshot
-  name  = "test-vault"  # Matches the secret name in your screenshot
+  mount = "kv"
+  name  = "test-vault"
 }
 
 resource "aws_instance" "my_instance" {
@@ -30,7 +28,5 @@ resource "aws_instance" "my_instance" {
 
   tags = {
     Name = "test"
-    # Example of how to use the secret data in a tag
-    # SecretKey = data.vault_kv_secret_v2.test-vault.data["your_key_here"]
   }
 }
